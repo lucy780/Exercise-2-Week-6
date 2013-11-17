@@ -1,0 +1,46 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+
+
+
+int main(){
+        int capital, number_of_years, i;
+        float interest_rate, tmp;
+
+
+
+
+        printf("Please, enter starting capital in £: ");
+        scanf("%d", &capital);
+        capital = capital * 100;
+        if(capital < 0){
+                printf("That won't be working\n");
+                return -1;
+        }
+        printf("Please, enter interest rate: ");
+        scanf("%f", &interest_rate);
+        if(interest_rate < 0.0){
+                printf("That won't be working\n");
+                return -1;
+        }
+        printf("Please, enter number of years: ");
+        scanf("%d", &number_of_years);
+        if(number_of_years < 0.0){
+                printf("That won't be working\n");
+                return -1;
+        }
+
+
+
+
+        printf("Year\t|\tInterest\t|\tSum\n");
+        for(i=0;i<number_of_years;i++){
+                printf("%d\t|\t", i+1);
+                tmp = (float)capital * interest_rate/100;
+                printf("%.2f\t|\t", tmp/100);
+                capital= capital + (int)tmp;
+                printf("%.2f\n", ((float)capital)/100);
+        }
+        return 0;
+}
